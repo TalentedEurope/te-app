@@ -42,7 +42,7 @@ export default class Alerts extends React.Component {
   }
 
   goToProfile(item) {
-    this.props.navigation.navigate('Profile', { id: item.user_id });
+    this.props.navigation.navigate('Profile', { id: item.user_id, goBack: true });
   }
 
   render() {
