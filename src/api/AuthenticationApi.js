@@ -20,4 +20,11 @@ export default class AuthenticationApi extends DefaultApi {
       body: JSON.stringify(data),
     }).then(this.handleResponse, this.handleNetworkError);
   }
+
+  getInstitutions() {
+    return fetch(`${this.backendService.apiUrl}register/institutions`, {
+      method: 'GET',
+      headers: this.getHeaders(),
+    }).then(this.handleResponse, this.handleNetworkError);
+  }
 }

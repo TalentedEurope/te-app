@@ -3,7 +3,6 @@ import {
   Modal,
   Platform,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,9 +10,9 @@ import {
 } from 'react-native';
 import CheckBox from 'react-native-icon-checkbox';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Ionicon from 'react-native-vector-icons/Ionicons';
 import SearchApi from '../../../../api/SearchApi';
 import I18n from '../../../../i18n/i18n';
+import { ModalHeader } from '../../../common/ModalHeader';
 import COMMON_STYLES from '../../../../styles/common';
 
 export default class Filters extends React.Component {
@@ -79,20 +78,8 @@ export default class Filters extends React.Component {
           visible={this.state.modalVisible}
           onRequestClose={() => this.closeModal()}
         >
-          <StatusBar barStyle="dark-content" />
-
           <View style={styles.modalContainer}>
-            <View style={styles.header}>
-              <Text style={styles.balanceTitle} />
-              <Text style={styles.title}>{I18n.t('search.filters')}</Text>
-              <TouchableOpacity
-                activeOpacity={0.8}
-                style={styles.closeButton}
-                onPress={() => this.closeModal()}
-              >
-                <Ionicon name="md-close" style={styles.closeIcon} />
-              </TouchableOpacity>
-            </View>
+            <ModalHeader title={I18n.t('search.filters')} onClose={() => this.closeModal()} />
 
             <ScrollView style={styles.filtersScroll}>
               <View style={styles.filterSchoolOuter}>
