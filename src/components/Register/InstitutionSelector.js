@@ -1,5 +1,14 @@
 import React from 'react';
-import { FlatList, Modal, StyleSheet, TextInput, Text, TouchableOpacity, View } from 'react-native';
+import {
+  FlatList,
+  Modal,
+  Platform,
+  StyleSheet,
+  TextInput,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import I18n from '../../i18n/i18n';
@@ -147,7 +156,7 @@ export default class InstitutionSelector extends React.Component {
                       onPress={() => this.selectInstitution(item)}
                       style={styles.institutionsListItem}
                     >
-                      <Text>{item.name}</Text>
+                      <Text style={styles.institutionsListItemText}>{item.name}</Text>
                     </TouchableOpacity>
                   )}
                 />
@@ -201,9 +210,9 @@ export default class InstitutionSelector extends React.Component {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 20,
-    borderTopWidth: 0.5,
-    borderTopColor: 'rgba(0, 0, 0, 0.5)',
     width: '100%',
+    borderTopWidth: 0.5,
+    borderTopColor: '#1f283a',
   },
 
   openInstitutionsButton: {
@@ -228,14 +237,14 @@ const styles = StyleSheet.create({
   },
   searchBoxIcon: {
     paddingLeft: 10,
-    paddingBottom: 2,
+    paddingBottom: Platform.OS === 'ios' ? 2 : 0,
     alignSelf: 'center',
     color: 'rgba(0, 0, 0, 0.5)',
   },
   searchBoxInput: {
     color: 'rgba(0, 0, 0, 0.7)',
-    height: 36,
-    fontSize: 16,
+    fontSize: 14,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 4,
     paddingHorizontal: 10,
     flex: 1,
   },
@@ -254,6 +263,9 @@ const styles = StyleSheet.create({
   institutionsListItem: {
     paddingVertical: 7,
     paddingHorizontal: 10,
+  },
+  institutionsListItemText: {
+    color: COMMON_STYLES.TEXT_COLOR,
   },
   institutionsListSeparator: {
     borderBottomColor: COMMON_STYLES.GRAY,
@@ -275,7 +287,7 @@ const styles = StyleSheet.create({
   modalInput: {
     height: 40,
     fontSize: 15,
-    color: 'rgba(0, 0, 0, 0.7)',
+    color: COMMON_STYLES.TEXT_COLOR,
     backgroundColor: 'white',
     marginBottom: 20,
     paddingHorizontal: 10,
