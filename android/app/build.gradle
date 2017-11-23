@@ -97,8 +97,8 @@ android {
         applicationId "eu.talentedeurope.app"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 4
-        versionName "1.0.2"
+        versionCode 5
+        versionName "1.0.3"
         manifestPlaceholders = [onesignal_app_id: "39548a36-6919-4c9e-ab4e-52a4da7c8f41",
                                 onesignal_google_project_number: "149802335171"]
         ndk {
