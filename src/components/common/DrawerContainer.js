@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { EventRegister } from 'react-native-event-listeners';
+import Communications from 'react-native-communications';
 import I18n from '../../i18n/i18n';
 import backendService from '../../shared/backendService';
 import userService from '../../shared/userService';
@@ -177,6 +178,12 @@ export default class DrawerContainer extends React.Component {
               />
             </View>
           )}
+
+          <MenuItem
+            icon="link"
+            onPress={() => Communications.web('http://talentedeurope.eu/')}
+            text={I18n.t('global.web')}
+          />
 
           <Image
             resizeMode={'contain'}
